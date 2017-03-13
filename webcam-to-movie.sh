@@ -18,6 +18,6 @@ fi
 for MONTHS in ${@:2}
 do
   #Pipe all jpeg files for one month to ffmpeg and output as mp4 file. Quality: crf 28
-  for i in $MONTHS-??/; do cat $i/*.jpg ;done | ffmpeg -f image2pipe -i - -crf 28 ../$1-$MONTHS.mp4
+  for i in $MONTHS-??/; do cat $i/*.jpg ;done | ffmpeg -f image2pipe -i - -crf 28 -pix_fmt yuv420p  ../$1-$MONTHS.mp4
 done
 
