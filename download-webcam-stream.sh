@@ -24,5 +24,5 @@ cd /home/thomas/webcam/$DIRNAVN
 while true
 do
   ffmpeg -loglevel warning -i "$2" -c:v copy  -c:a copy stream/$DIRNAVN-`date +%F-%T`.ts
-  sleep 1
+  sleep 10
 done
