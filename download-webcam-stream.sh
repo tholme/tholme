@@ -9,7 +9,8 @@ fi
 #FILNAVN=`basename $1`
 #DIRNAVN=`basename $1 .jpg`
 
-DIRNAVN=$1
+#Replace / with - and set $1 as DIRNAVN
+DIRNAVN="${1//\//$'-'}"
 
 if [ ! -f "/media/2tb/webcam/$DIRNAVN/stream/url" ]; then
 	echo "/media/2tb/webcam/$DIRNAVN/stream/url does not exist"
