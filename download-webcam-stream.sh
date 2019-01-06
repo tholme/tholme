@@ -12,12 +12,12 @@ fi
 #Replace / with - and set $1 as DIRNAVN
 DIRNAVN="${1//\//$'-'}"
 
-if [ ! -f "/media/2tb/webcam/$DIRNAVN/stream/url" ]; then
-	echo "/media/2tb/webcam/$DIRNAVN/stream/url does not exist"
+if [ ! -f "$HOME/webcam/$DIRNAVN/stream/url" ]; then
+	echo "$HOME/webcam/$DIRNAVN/stream/url does not exist"
 	exit 3
 fi
 
-read URL < /media/2tb/webcam/$DIRNAVN/stream/url
+read URL < $HOME/webcam/$DIRNAVN/stream/url
 
 #Trap ctrl+c
 trap trapint 2
@@ -25,7 +25,7 @@ function trapint {
     exit 0
 }
 
-cd /media/2tb/webcam/$DIRNAVN
+cd $HOME/webcam/$DIRNAVN
 
 while true
 do

@@ -18,8 +18,8 @@ then
   sleep 30
 fi
 
-mkdir -p /home/thomas/webcam/$DIRNAVN
-cd /home/thomas/webcam/$DIRNAVN
+mkdir -p $HOME/webcam/$DIRNAVN
+cd $HOME/webcam/$DIRNAVN
 
 if [ -s "$FILNAVN" ]
 then

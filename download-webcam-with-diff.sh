@@ -13,8 +13,8 @@ DIRNAVN=$1
 URL="$2"
 FILNAVN=`basename $URL`
 
-mkdir -p /home/thomas/webcam/$DIRNAVN
-cd /home/thomas/webcam/$DIRNAVN
+mkdir -p $HOME/webcam/$DIRNAVN
+cd $HOME/webcam/$DIRNAVN
 
 if [ -e "$FILNAVN" ]
   then
