@@ -24,7 +24,7 @@ fi
 wget --content-disposition=off -q -t 2 -N $URL
 
 if [ -s $FILNAVN ]
-  MD5SUM=$(md5sum $FILNAVN | awk '{print $1}')
+  MD5SUM=$(openssl md5 $FILNAVN | awk '{print $2}')
   if [ -s md5sums.txt ]
     then
 	grep -q $MD5SUM md5sums.txt && exit 0
