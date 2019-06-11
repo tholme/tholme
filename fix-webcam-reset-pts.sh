@@ -1,12 +1,21 @@
+#!/bin/sh
 #FILENAME=$1
 #OUTNAME=${FILENAME%.*}.mp4
 
+while getopts d option
+do
+case "${option}"
+in
+d) MAXDEPTH=${OPTARG};;
+esac
+done
+
 #Delete ts files smaller than 160k
-find . -type f -name "*.ts" -maxdepth 1 -size -360k -delete 
+find . -type f -name "*.ts" -maxdepth ${MAXDEPTH:-1} -size -360k -delete
 
 #Convert to mp4
 
-find . -type f -name '*.ts' -maxdepth 1 -exec sh -c '
+find . -type f -name '*.ts' -maxdepth ${MAXDEPTH:-1} -exec sh -c '
   for file do
     OUTNAME=${file%.*}.mp4
     echo "$file -> $OUTNAME" 
