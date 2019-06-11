@@ -24,14 +24,13 @@ fi
 wget --content-disposition=off -q -t 2 -N $URL
 
 if [ -s $FILNAVN ]
-  MD5SUM=$(openssl md5 $FILNAVN | awk '{print $2}')
-  if [ -s md5sums.txt ]
-    then
-	grep -q $MD5SUM md5sums.txt && exit 0
-  fi
-  echo $MD5SUM >> md5sums.txt
-
   then
+  	MD5SUM=$(openssl md5 $FILNAVN | awk '{print $2}')
+	if [ -s md5sums.txt ]
+	  then
+		grep -q $MD5SUM md5sums.txt && exit 0
+	fi
+	echo $MD5SUM >> md5sums.txt
 	if ! diff -q "$FILNAVN" "$FILNAVN".bak.jpg > /dev/null 2>&1
   	  then
 		mkdir -p `date -r $FILNAVN +%F`
