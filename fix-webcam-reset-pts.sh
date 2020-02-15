@@ -2,13 +2,15 @@
 #FILENAME=$1
 #OUTNAME=${FILENAME%.*}.mp4
 
-while getopts d option
+while getopts d:o option
 do
 case "${option}"
 in
-d) MAXDEPTH=${OPTARG};;
+d) MAXDEPTH=${OPTARG:-1};;
 esac
 done
+
+echo $MAXDEPTH
 
 #Delete ts files smaller than 160k
 find . -type f -name "*.ts" -maxdepth ${MAXDEPTH:-1} -size -360k -delete
