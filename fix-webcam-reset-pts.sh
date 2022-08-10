@@ -13,11 +13,11 @@ done
 echo $MAXDEPTH
 
 #Delete ts files smaller than 160k
-find . -type f -name "*.ts" -maxdepth ${MAXDEPTH:-1} -size -360k -delete
+find . -maxdepth ${MAXDEPTH:-1} -type f -name "*.ts"  -size -360k -delete
 
 #Convert to mp4
 
-find . -type f -name '*.ts' -maxdepth ${MAXDEPTH:-1} -exec sh -c '
+find . -maxdepth ${MAXDEPTH:-1} -type f -name '*.ts' -exec sh -c '
   for file do
     OUTNAME=${file%.*}.mp4
     echo "$file -> $OUTNAME" 
