@@ -31,6 +31,6 @@ while true
 do
   MONTH=`date +%Y-%m`
   mkdir -p stream/$MONTH
-  ffmpeg -loglevel warning -i "$URL" -vcodec copy -c:v copy  -c:a copy stream/$MONTH/$DIRNAVN-`date +%F-%T`.ts
+  ffmpeg -loglevel warning -i "$URL" -vcodec copy -c:a copy stream/$MONTH/$DIRNAVN-`date +%F-%T`.ts
   sleep 60
 done
